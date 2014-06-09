@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width", initial=1.0>
+	<title>HTML encoder</title>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<body>
+		<pre><</pre>
+<script>
+	var PRE = $('pre');
+	var START_TAG = "<";
+	var END_TAG = ">";
+	var CON_START_TAG = "&lt;";
+	var CON_END_TAG = "&gt;"
+	PRE.text();
+	PRE.text(END_TAG);
+
+	$(window).on('load', function(){
+		var source = PRE.text();
+		if(source.match(new RegExp(START_TAG + '.*' + END_TAG))){
+			START_TAG = CON_START_TAG;
+			END_TAG = CON_END_TAG;
+		}
+		PRE.html(source);
+	});
+</script>
+</body>
+</html>

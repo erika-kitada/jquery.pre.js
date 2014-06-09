@@ -6,7 +6,9 @@
 	<title>HTML encoder</title>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <body>
-<pre><br></pre>
+<pre>
+	<code><br></code>
+</pre>
 <script>
 	var target = [
 		{regexp : /&/g, escaped : '&amp;'},
@@ -15,13 +17,13 @@
 		{regexp : /"/g, escaped : '&quot;'},
 		{regexp : /'/g, escaped : '&#039;'}
 	];
-	var $pre = $('pre'),
-	html = $pre.html();
+	var $code = $('code'),
+	html = $code.html();
 
 	for(var i = 0, length = target.length; i < length; i++){
 		html = html.replace(target[i].regexp, target[i].escaped);
 	}
-	$pre.html(html);
+	$code.html(html);
 </script>
 </body>
 </html>
